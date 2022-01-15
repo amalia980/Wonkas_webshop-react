@@ -7,7 +7,11 @@ const Navbar = () => {
         <nav className="nav">
             <h2 className="links">Wonka's Chocolate Factory</h2>
             <Link className="links" to="/">Shop</Link>
-            <Link className="links" to="/checkout">Checkout</Link>
+            <div className="right-nav">
+                <Link className="login-btn" to="register">Register</Link>
+                <div className="line"></div>
+                <Link className ="login-btn" to="/login">Login</Link>
+            </div>
         </nav>
     );
 };

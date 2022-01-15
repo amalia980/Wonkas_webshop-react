@@ -42,7 +42,7 @@ const Checkout = () => {
                 <div>
             <h1>Checkout</h1>
 
-                <h2>Your'e Products</h2>
+                <div>{cartItems.length === 0 && <h2>No products added...</h2>}</div>
 
                     {cartItems.map((item) => (
                         <div className='product-row'>
@@ -64,6 +64,7 @@ const Checkout = () => {
             
             <div className='wrapper-form'>
                 <div>
+                    <h1>Delivery info</h1>
                     <form className='form'>
                         <input className='input' type="text" placeholder='Firstname...'/>
                         <input className='input' type="text" placeholder='Lastname...'/>

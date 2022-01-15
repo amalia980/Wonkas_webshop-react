@@ -1,3 +1,5 @@
 .main {
+    background-color: rgb(196, 255, 201);
+    min-height: 100vh;
     padding: 4rem;
 }

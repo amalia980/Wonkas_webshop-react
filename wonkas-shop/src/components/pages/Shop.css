@@ -78,6 +78,7 @@
     width: 1.2rem;
     margin-right: 0.4rem;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .minus-btn {
@@ -87,6 +88,7 @@
     width: 1.2rem;
     cursor: pointer;
     margin-right: 1rem;
+    border-radius: 5px;
 }
 
 
@@ -110,6 +112,12 @@
     border: none;
     border-radius: 10px;
     background-color: lightblue;
+}
+
+.checkout-link {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
 }
 
 .footer-cart {

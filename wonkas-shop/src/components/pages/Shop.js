@@ -1,16 +1,17 @@
 import './Shop.css';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { ProductContext } from '../../context/ProductsContext';
+import { Link } from 'react-router-dom';
 
 const Shop = () => {
 
-    const {products} = useContext(ProductContext);
+    const {products, cartItems, setCartItems} = useContext(ProductContext);
 
-    const [cartItems, setCartItems] = useState([]);
     //calculate the price of all items
     const itemsPrice = cartItems.reduce((a, b) => a + b.price * b.quantity, 0);
     //calculate total price of all different items
 
+    //to not dublicate item, but at the same time add item
     const addItems = (product) => {
         const exist = cartItems.find(x => x.id === product.id);
         if(exist) {
@@ -22,6 +23,7 @@ const Shop = () => {
         }
     }
 
+    //remove each item with 1
     const removeItem = (product) => {
         const exist = cartItems.find((x) => x.id === product.id);
         if (exist.quantity === 1) {
@@ -33,9 +35,6 @@ const Shop = () => {
         }
     }
 
-    const checkout = () => {
-        alert("Your'e order has been made!")
-    }
 
     return (
         <div className='container'>
@@ -72,7 +71,6 @@ const Shop = () => {
                                     <div className='qty-price'>
                                         <button onClick={() => addItems(item)} className='plus-btn'>+</button>
                                         <button  onClick={() => removeItem(item)} className='minus-btn'>-</button>  
-
                                         {item.quantity} x ${item.price}
                                     </div>
                                 </div>
@@ -81,7 +79,7 @@ const Shop = () => {
                             <div className='footer-cart'>
                                 <div className='totalPrice-row'><h3>Total: </h3> <p>${itemsPrice}</p></div>
                             <hr></hr>
-                            <button onClick={() => checkout()} className='checkout-btn'>Checkout</button>
+                            <button className='checkout-btn'><Link className='checkout-link' to="/checkout">Checkout</Link></button>
                             </div>
                     </div>
                 </div>

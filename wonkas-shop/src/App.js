@@ -16,6 +16,7 @@ function App() {
             <Route path="checkout" element={<Checkout />}/>
             <Route path="register" element={<Register />}/>
             <Route path="login" element={<Login />}/>
+            <Route path="login/:firstname/:lastname" element={<Login />} />
           </Route>
         </Routes>
       </BrowserRouter>

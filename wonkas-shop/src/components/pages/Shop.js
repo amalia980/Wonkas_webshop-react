@@ -2,10 +2,12 @@ import './Shop.css';
 import { useContext } from 'react';
 import { ProductContext } from '../../context/ProductsContext';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../context/UserContext';
 
 const Shop = () => {
 
     const {products, cartItems, setCartItems} = useContext(ProductContext);
+    const {user} = useContext(UserContext);
 
     //calculate the price of all items
     const itemsPrice = cartItems.reduce((a, b) => a + b.price * b.quantity, 0);
@@ -37,8 +39,15 @@ const Shop = () => {
 
 
     return (
+        <>
+        <div className='welcome'>
+                <h2>Welcome {user.firstname}!</h2>
+            </div>
+            
         <div className='container'>
+
             <div className='wrapper-products'>
+
 
             {products.map((product) => (
                 <div className='card'>
@@ -85,6 +94,7 @@ const Shop = () => {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 

@@ -1,10 +1,11 @@
 import './Checkout.css'
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { ProductContext } from '../../context/ProductsContext';
 
 const Checkout = () => {
 
     const {cartItems, setCartItems} = useContext(ProductContext);
+
 
     //calculate total price
     const itemsPrice = cartItems.reduce((a, b) => a + b.price * b.quantity, 0);
@@ -31,9 +32,12 @@ const Checkout = () => {
          }
      }
 
-    const checkout = () => {
-        alert("Your'e order has been made!")
+    const makeOrder = () => {
+        alert(JSON.stringify(cartItems))
+        console.log(cartItems)
     }
+
+    
 
     return (
         <div className="checkout-div">
@@ -45,7 +49,7 @@ const Checkout = () => {
                 <div>{cartItems.length === 0 && <h2>No products added...</h2>}</div>
 
                     {cartItems.map((item) => (
-                        <div className='product-row'>
+                        <div className='product-row' key={item.id}>
                             <div>{item.title}</div>
                                 <div className='qty-price'>
                                     <button onClick={() => addItems(item)} className='plus-btn'>+</button>
@@ -65,14 +69,14 @@ const Checkout = () => {
             <div className='wrapper-form'>
                 <div>
                     <h1>Delivery info</h1>
-                    <form className='form'>
+                    <form className='form' onSubmit={makeOrder}>
                         <input className='input' type="text" placeholder='Firstname...'/>
                         <input className='input' type="text" placeholder='Lastname...'/>
                         <input className='input' type="text" placeholder='Street...'/>
                         <input className='input' type="text" placeholder='City...'/>
                         <input className='input' type="number" placeholder='Zip code...'/>
                         <input className='input' type="number" placeholder='Phone...'/>
-                        <button className='order-btn' onClick={() => checkout()}>Make Order</button>
+                        <button className='order-btn' type='submit'>Make Order</button>
                     </form>
                 </div>
             </div>

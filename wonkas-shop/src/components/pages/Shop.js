@@ -50,7 +50,7 @@ const Shop = () => {
 
 
             {products.map((product) => (
-                <div className='card'>
+                <div className='card' key={product.id}>
                 <div>
                     <img className="img" src={product.img} alt={product.title}/>
                         <div className='card-txts'>

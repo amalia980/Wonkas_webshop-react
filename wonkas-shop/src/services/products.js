@@ -74,4 +74,9 @@ const products = [
     },
 ];
 
+<<<<<<< HEAD
+=======
+console.log(products);
+
+>>>>>>> feature-branch3
 export default products;

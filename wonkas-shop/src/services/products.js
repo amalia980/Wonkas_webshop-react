@@ -74,5 +74,6 @@ const products = [
     },
 ];
 
+console.log(products);
 
 export default products;

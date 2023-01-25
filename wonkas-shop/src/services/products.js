@@ -74,5 +74,6 @@ const products = [
     },
 ];
 
+console.log("testing rebase once again");
 
 export default products;

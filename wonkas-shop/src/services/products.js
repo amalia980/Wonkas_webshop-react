@@ -75,8 +75,12 @@ const products = [
 ];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 console.log(products);
 
 >>>>>>> feature-branch3
+=======
+
+>>>>>>> feature-branch4
 export default products;

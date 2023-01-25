@@ -1,10 +1,11 @@
 import './Checkout.css'
 import { useContext, useState } from 'react';
-import { ProductContext } from '../../context/ProductsContext';
+//import { ProductContext } from '../../context/ProductsContext';
+import { CartContext } from '../../context/CartContext';
 
 const Checkout = () => {
 
-    const {cartItems, setCartItems} = useContext(ProductContext);
+    const {cartItems, setCartItems} = useContext(CartContext);
 
 
     //calculate total price

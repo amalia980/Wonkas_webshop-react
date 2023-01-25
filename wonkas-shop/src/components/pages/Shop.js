@@ -1,13 +1,17 @@
 import './Shop.css';
-import { useContext } from 'react';
-import { ProductContext } from '../../context/ProductsContext';
+import { useContext} from 'react';
+//import { ProductContext } from '../../context/ProductsContext';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
+import { CartContext } from '../../context/CartContext';
+import products from '../../services/products';
 
 const Shop = () => {
 
-    const {products, cartItems, setCartItems} = useContext(ProductContext);
-    const {user} = useContext(UserContext);
+    //const {products, cartItems, setCartItems} = useContext(ProductContext);
+    const { user } = useContext(UserContext);
+    const { cartItems, setCartItems } = useContext(CartContext);
+
 
     //calculate the price of all items
     const itemsPrice = cartItems.reduce((a, b) => a + b.price * b.quantity, 0);
